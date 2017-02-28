@@ -2,11 +2,31 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>TEST</title>
+        <title>Project 1</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'jpskip/stylesheets/style.css' %}">
+        <script type="text/javascript" src="{% static 'jpskip/scripts/script.js' %}" defer></script>
     </head>
     <body>
-        {% for character in characters %}
-            <h3>{{ character.kanji }}</h3>
-        {% endfor %}
+        <div class="header">
+            <a href="/">Home</a>
+        </div>
+        <div class="sidebar">
+            <ul>
+                <li>test</li>
+                <li>test1</li>
+            </ul>
+        </div>
+        <div class="main">
+            <h1>{{characters.kanji}}</h1>
+            <form action="/process" method="post" id="test">
+                {% csrf_token %}
+                <input type="hidden" id="answer" value="{{characters.p1}}" >
+                <input type="text" name="guess" id="guess">
+                <input type="submit" value="Submit">
+            </form>
+            <span></span>
+        </div>
     </body>
 </html>
