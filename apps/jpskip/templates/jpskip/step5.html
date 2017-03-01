@@ -12,17 +12,12 @@
         <div class="header">
             <a href="/">Home</a><a href="/step4">step4</a><a href="step5">step5</a>
         </div>
-        <div class="sidebar">
-            <ul>
-                <li>test</li>
-                <li>test1</li>
-            </ul>
-        </div>
+        <h1>{{random.kanji}} {{random.p1}}</h1>
         <div class="main">
-            <h1>{{characters.kanji}}</h1>
             <form action="/process" method="post" id="test">
                 {% csrf_token %}
-                <input type="hidden" id="answer" value="{{characters.p1}}" >
+                <input type="hidden" id="answer" value="{{random.p1}}" >
+                <input type="hidden" name="step" value="5" >
                 <input type="text" name="guess" id="guess">
                 <input type="submit" value="Submit">
             </form>

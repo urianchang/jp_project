@@ -10,4 +10,14 @@ def index(request):
 
 def process(request):
     print "***SUBMIT***"
+    if request.POST['step'] == "4":
+        return redirect('/step4')
+    if request.POST['step'] == "5":
+        return redirect('/step5')
     return redirect('/')
+
+def step4(request):
+    return render(request, 'jpskip/step4.html', {'randomCat4': Character.objects.randomizer(4)})
+
+def step5(request):
+    return render(request, 'jpskip/step5.html', {'random': Character.objects.randomizer()})
