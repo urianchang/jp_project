@@ -17,8 +17,8 @@
             <form action="/process" method="post" id="test">
                 {% csrf_token %}
                 <input type="hidden" id="answer" value="{{randomCat4.p3}}" >
-                <input type="hidden" name="step" value="4" >
-                <input type="text" name="guess" id="guess">
+                <input type="hidden" name="step" value="4">
+                <input type="text" name="guess" id="guess" style="width: 15px">
                 <input type="submit" value="Submit">
             </form>
             <span></span>

@@ -14,11 +14,15 @@
         </div>
         <h1>{{random.kanji}} {{random.p1}}</h1>
         <div class="main">
-            <form action="/process" method="post" id="test">
+            <form action="/process" method="post" id="step5">
                 {% csrf_token %}
-                <input type="hidden" id="answer" value="{{random.p1}}" >
+                <input type="hidden" id="p1" value="{{random.p1}}" >
+                <input type="hidden" id="p2" value="{{random.p2}}" >
+                <input type="hidden" id="p3" value="{{random.p3}}" >
                 <input type="hidden" name="step" value="5" >
-                <input type="text" name="guess" id="guess">
+                <input type="text" id="userp1" style="width: 15px">
+                <input type="text" id="userp2" style="width: 15px">
+                <input type="text" id="userp3" style="width: 15px">
                 <input type="submit" value="Submit">
             </form>
             <span></span>
