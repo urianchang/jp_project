@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^step3$', views.step3),
     url(r'^step4$', views.step4),
     url(r'^step5$', views.step5),
+    url(r'^step6$', views.step6), 
 ]
