@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project 1</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'jpskip/stylesheets/style.css' %}">
+        <script type="text/javascript" src="{% static 'jpskip/scripts/script.js' %}" defer></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'jpskip/stylesheets/style1.css' %}">
+    </head>
+    <body>
+      <header>
+        <div class="row">
+          <ul class="main-nav">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/step1">STEP 1</a></li>
+            <li><a href="/step2">STEP 2</a></li>
+            <li><a href="/step3">STEP 3</a></li>
+            <li><a href="/step4">STEP 4</a></li>
+            <li><a href="/step5">STEP 5</a></li>
+            <li><a href="/step6">STEP 6</a></li>
+          </ul>
+        </div>
+        <div class="character" value="{{random.kanji}}" id="randomKanji">
+            <h1>{{random.kanji}} {{random.p1}} {{random.p2}} {{random.p3}}</h1>
+        </div>
+        <div class="main">
+            <form action="/process" method="post" id="step6">
+                {% csrf_token %}
+                <input type="hidden" id="p1" value="{{random.p1}}" >
+                <input type="hidden" id="p2" value="{{random.p2}}" >
+                <input type="hidden" id="p3" value="{{random.p3}}" >
+                <input type="hidden" name="step" value="6" >
+                <span>
+                    <input type="text" id="userp1" style="width: 50px; height: 50px">
+                    -<input type="text" id="userp2" style="width: 50px; height: 50px">
+                    -<input type="text" id="userp3" style="width: 50px; height: 50px">
+                </span>
+                <a href="" class="btn">Submit</a>
+                <a href="" class="btn">Test</a>
+            </form>
+        </div>
+        <div class="message">
+          <span id="msg"></span>
+              {%for char in skipHits%}
+                  <span class="hit" {%if char.kanji == random.kanji %}id="hit"{%endif%}>{{char.kanji}}</span>
+              {%endfor%}
+        </div>
+      </header>
+    </body>
+</html>

@@ -34,3 +34,10 @@ def step4(request):
     return render(request, 'jpskip/step4.html', {'randomCat4': Character.objects.randomizer(4)})
 def step5(request):
     return render(request, 'jpskip/step5.html', {'random': Character.objects.randomizer()})
+def step6(request):
+    random = Character.objects.randomizer()
+    context = {
+        'random': random,
+        'skipHits': Character.objects.filter(skipcode=random.skipcode)
+    }
+    return render(request, 'jpskip/step6.html', context)
